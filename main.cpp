@@ -4,7 +4,7 @@ int main()
 {
     std::cout << "You are robbing a bank... \n";
     std::cout << "The locks to break in and secure your money require various maths puzzles... \n";
-    std::cout << "If you get one wrong the alarms ring and you get caught!";
+    std::cout << "If you get one wrong the alarms ring and you get caught!\n\n";
 
     const int KeyA = 4;
     const int KeyB = 3;
@@ -19,7 +19,7 @@ int main()
     std:: cout << "+ The codes multiply to give: " << CodeProduct << std:: endl;
 
     int GuessA, GuessB, GuessC;
-    std::cin >> GuessA >> GuessB >> GuessC
+    std::cin >> GuessA >> GuessB >> GuessC;
     
 
     int GuessSum = GuessA + GuessB + GuessC;
