@@ -1,6 +1,6 @@
 #include <iostream>
 
-int main()
+void PlayGame()
 {
     std::cout << "You are robbing a bank... \n";
     std::cout << "The locks to break in and secure your money require various maths puzzles... \n";
@@ -33,6 +33,12 @@ int main()
     {
         std:: cout << "You lose \n";
     }
+
+}
+
+int main()
+{
+    
     
     return 0; 
 }
