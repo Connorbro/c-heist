@@ -1,18 +1,24 @@
 #include <iostream>
 
-void PlayGame()
+void PrintIntroduction(int Difficulty)
 {
-    std::cout << "You are robbing a bank... \n";
+    std::cout << "\nYou are robbing a bank... \n";
     std::cout << "The locks to break in and secure your money require various maths puzzles... \n";
-    std::cout << "If you get one wrong the alarms ring and you get caught!\n\n";
+    std::cout << "Level " << Difficulty << std:: endl;
 
-    const int KeyA = 4;
-    const int KeyB = 3;
-    const int KeyC= 2;
+}
+bool PlayGame(int Difficulty)
+{
+    PrintIntroduction(Difficulty);
+    
+    const int KeyA = rand() % Difficulty + Difficulty;
+    const int KeyB = rand() % Difficulty + Difficulty;
+    const int KeyC= rand() % Difficulty + Difficulty;
 
 
     const int CodeSum = KeyA + KeyB + KeyC;
     const int CodeProduct = KeyA * KeyB * KeyC;
+
     std:: cout << std::endl;
     std:: cout << "+ There are three numbers in the code \n";
     std:: cout << "+ The codes add-up to: " << CodeSum << std:: endl;
@@ -27,18 +33,31 @@ void PlayGame()
 
     if (GuessSum == CodeSum && GuessProduct == CodeProduct)
     {
-        std:: cout << "you win \n";
+        std:: cout << "Well done! keep it up \n";
+        return true;
     }
     else 
     {
-        std:: cout << "You lose \n";
+        std:: cout << "You entered a wrong code, the alarm rings and you go to jail! \n";
+        return false;
     }
 
 }
-
 int main()
 {
-    
-    
+    int LevelDifficulty = 1;
+    int const MaxDifficulty = 5;
+
+    while (LevelDifficulty <= MaxDifficulty)
+    {
+        bool bLevelComplete = PlayGame(LevelDifficulty);
+        std::cin.clear();
+        std::cin.ignore();
+        if(bLevelComplete)
+        {
+            ++LevelDifficulty;
+        }
+    }
+    std::cout << "\n Great work!! You escape with the money!!";
     return 0; 
 }
